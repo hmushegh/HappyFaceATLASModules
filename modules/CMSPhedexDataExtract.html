@@ -1,0 +1,49 @@
+## -*- coding: utf-8 -*-
+<%inherit file="/module_base.html" />
+
+<%def name="content()">
+<style>
+#${module.instance_name}_histogram {
+	position: relative;
+	height: ${height}px;
+	width: *;
+	z-index: 0;
+}
+
+#${module.instance_name}_histogram span {
+	position: absolute;
+	height: 14px;
+	width: ${width-1}px;
+	z-index: 6;
+	border-left: 1px solid #000;
+	border-right: 1px solid #000;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+}
+
+#${module.instance_name}_histogram a {
+	height: 14px;
+	width: 85.2%;
+	position: absolute;
+	z-index: 5;
+	font-size: small;
+	border-bottom: 1px solid #000;
+	display: block;
+	padding-bottom: 1px;
+}
+
+</style>
+<div id="${module.instance_name}_histogram">
+%for cols in link_list:
+    <span style = "top:${15*cols['y']+50}px; left:${width*cols['x']+201}px; background:${cols['color']};"
+    title="time: ${cols['time']} &#xA;rate: ${cols['rate']}MB/s &#xA;files done: ${cols['done']} &#xA;files failed: ${cols['fails']} &#xA;quality: ${cols['w']}">
+    <font color=${cols['marking']} size="tiny">~^~</font>
+    </span>
+%endfor
+%for i,title in enumerate(titles):
+  <a style='top:${15*i+49}px; padding-bottom:2px;' href = '${title['link']}'>${title['name']}</a>
+  <a style="top:${15*i+50}px; left:171px; width:15px; z-index:6; background-image:url('${button_pic_in}');" href='${info_link_1}${title['name']}'></a>
+  <a style="top:${15*i+50}px; left:186px; width:15px; z-index:6; background-image:url('${button_pic_out}');" href='${info_link_2}${title['name']}'></a>
+%endfor
+</div>
+</%def>

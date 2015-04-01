@@ -1,0 +1,9 @@
+*~
+*.pyc
+*.db
+.*.swp
+tmp/*
+static/archive/*
+.svn/*
+modules/*
+config/*

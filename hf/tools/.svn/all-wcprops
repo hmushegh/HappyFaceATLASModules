@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/public/HappyFace/!svn/ver/907/branches/v3.0/hf/tools
+END
+dbupdate.py
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/public/HappyFace/!svn/ver/849/branches/v3.0/hf/tools/dbupdate.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/public/HappyFace/!svn/ver/745/branches/v3.0/hf/tools/__init__.py
+END
+gensiteconfig.py
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/public/HappyFace/!svn/ver/859/branches/v3.0/hf/tools/gensiteconfig.py
+END
+modconfig.py
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/public/HappyFace/!svn/ver/849/branches/v3.0/hf/tools/modconfig.py
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/public/HappyFace/!svn/ver/754/branches/v3.0/hf/tools/README
+END
+shell.py
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/public/HappyFace/!svn/ver/907/branches/v3.0/hf/tools/shell.py
+END

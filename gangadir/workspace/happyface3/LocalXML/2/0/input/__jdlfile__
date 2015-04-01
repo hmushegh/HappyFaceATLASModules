@@ -1,0 +1,25 @@
+[
+VirtualOrganisation = "atlas";
+Environment = {
+   "GANGA_LCG_CE='cream-ge-2-kit.gridka.de:8443/cream-sge-sl6'",
+   "GANGA_LCG_VO='atlas'",
+   "LFC_HOST=''",
+   "GANGA_LOG_HANDLER='WMS'"
+};
+Executable = "__jobscript_2.0__";
+OutputSandbox = {
+   "__jobscript__.log",
+   "stdout.gz",
+   "stderr.gz",
+   "_output_sandbox.tgz"
+};
+StdError = "stderr";
+StdOutput = "stdout";
+OutputSandboxBaseDestURI = "gsiftp://localhost";
+InputSandbox = {
+   "/var/lib/HappyFace3/gangadir/workspace/happyface3/LocalXML/2/0/input/_input_sandbox_2_0.tgz",
+   "/var/lib/HappyFace3/gangadir/workspace/happyface3/LocalXML/2/0/input/./__jobscript_2.0__"
+};
+JobType = "NORMAL";
+
+]

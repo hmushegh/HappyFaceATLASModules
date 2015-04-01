@@ -1,0 +1,12 @@
+## -*- coding: utf-8 -*-
+<%inherit file="/module_base.html" />
+
+<%def name="content()">
+<table class="TableData">
+<tr>
+<td class="PhedexStatsTableFirstCol">TSM tape accounting at ${module.dataset["used_tape_timestamp"]}</td>
+<td>${module.dataset["total_tape_size"]} TB</td>
+</tr>
+</table>
+
+</%def>

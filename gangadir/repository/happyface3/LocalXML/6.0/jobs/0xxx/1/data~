@@ -1,0 +1,194 @@
+<root>
+ <class name="Job" version="1.6" category="jobs">
+    <attribute name="comment"> <value>''</value>
+</attribute>
+    <attribute name="id"> <value>1</value>
+</attribute>
+    <attribute name="status"> <value>'submitted'</value>
+</attribute>
+    <attribute name="do_auto_resubmit"> <value>False</value>
+</attribute>
+    <attribute name="name"> <value>'CREAM'</value>
+</attribute>
+    <attribute name="outputsandbox">
+       <sequence>
+          <value>'stdout.gz'</value>
+
+          <value>'stderr.gz'</value>
+
+          <value>'output_sandbox.tgz'</value>
+
+       </sequence>
+    </attribute>
+    <attribute name="non_copyable_outputfiles">
+       <sequence>
+       </sequence>
+    </attribute>
+    <attribute name="inputfiles">
+       <sequence>
+       </sequence>
+    </attribute>
+    <attribute name="backend">
+          <class name="CREAM" version="1.0" category="backends">
+             <attribute name="status"> <value>''</value>
+</attribute>
+             <attribute name="osbURI"> <value>''</value>
+</attribute>
+             <attribute name="CE"> <value>'cream-ge-2-kit.gridka.de:8443/cream-sge-sl6'</value>
+</attribute>
+             <attribute name="reason"> <value>''</value>
+</attribute>
+             <attribute name="workernode"> <value>''</value>
+</attribute>
+             <attribute name="actualCE"> <value>''</value>
+</attribute>
+             <attribute name="isbURI"> <value>''</value>
+</attribute>
+             <attribute name="exitcode_cream"> <value>''</value>
+</attribute>
+             <attribute name="id"> <value>''</value>
+</attribute>
+             <attribute name="jobtype"> <value>'Normal'</value>
+</attribute>
+             <attribute name="exitcode"> <value>''</value>
+</attribute>
+             <attribute name="sandboxcache">
+                   <class name="GridftpSandboxCache" version="1.0" category="GridSandboxCache">
+                      <attribute name="protocol"> <value>'gsiftp'</value>
+</attribute>
+                      <attribute name="baseURI"> <value>''</value>
+</attribute>
+                      <attribute name="middleware"> <value>'EDG'</value>
+</attribute>
+                      <attribute name="vo"> <value>'dteam'</value>
+</attribute>
+                      <attribute name="timeout"> <value>180</value>
+</attribute>
+                      <attribute name="max_try"> <value>1</value>
+</attribute>
+                      <attribute name="uploaded_files">
+                         <sequence>
+                         </sequence>
+                      </attribute>
+                   </class>
+             </attribute>
+             <attribute name="requirements">
+                   <class name="LCGRequirements" version="1.2" category="LCGRequirements">
+                      <attribute name="datarequirements">
+                         <sequence>
+                         </sequence>
+                      </attribute>
+                      <attribute name="nodenumber"> <value>1</value>
+</attribute>
+                      <attribute name="dataaccessprotocol">
+                         <sequence>
+                            <value>'gsiftp'</value>
+
+                         </sequence>
+                      </attribute>
+                      <attribute name="cputime"> <value>0</value>
+</attribute>
+                      <attribute name="walltime"> <value>0</value>
+</attribute>
+                      <attribute name="ipconnectivity"> <value>False</value>
+</attribute>
+                      <attribute name="allowedCEs"> <value>''</value>
+</attribute>
+                      <attribute name="excludedCEs"> <value>''</value>
+</attribute>
+                      <attribute name="other">
+                         <sequence>
+                         </sequence>
+                      </attribute>
+                      <attribute name="memory"> <value>0</value>
+</attribute>
+                      <attribute name="software">
+                         <sequence>
+                         </sequence>
+                      </attribute>
+                   </class>
+             </attribute>
+          </class>
+    </attribute>
+    <attribute name="merger">
+       <value>None</value>
+    </attribute>
+    <attribute name="application">
+          <class name="Executable" version="2.0" category="applications">
+             <attribute name="exe"> <value>File(name='/bin/echo',subdir='.')</value>
+</attribute>
+             <attribute name="hash"> <value>'b674536ff339219162bf24e2ee1d777b'</value>
+</attribute>
+             <attribute name="env"> <value>{}</value>
+</attribute>
+             <attribute name="args">
+                <sequence>
+                   <value>'Hello World'</value>
+
+                </sequence>
+             </attribute>
+             <attribute name="is_prepared"> <value>ShareDir(name='conf-238837d7-85cf-4833-bd59-fd1cf7556c3c',subdir='.')</value>
+</attribute>
+          </class>
+    </attribute>
+    <attribute name="inputdata">
+       <value>None</value>
+    </attribute>
+    <attribute name="metadata">
+          <class name="MetadataDict" version="1.0" category="metadata">
+             <attribute name="data"> <value>{}</value>
+</attribute>
+          </class>
+    </attribute>
+    <attribute name="outputfiles">
+       <sequence>
+       </sequence>
+    </attribute>
+    <attribute name="postprocessors">
+          <class name="MultiPostProcessor" version="1.0" category="postprocessor">
+             <attribute name="process_objects">
+                <sequence>
+                </sequence>
+             </attribute>
+          </class>
+    </attribute>
+    <attribute name="info">
+          <class name="JobInfo" version="0.1" category="jobinfos">
+             <attribute name="monitoring_links">
+                <sequence>
+                </sequence>
+             </attribute>
+             <attribute name="uuid"> <value>'0b657a11-b764-4e85-8336-3fca9c867e9d'</value>
+</attribute>
+             <attribute name="submit_counter"> <value>0</value>
+</attribute>
+             <attribute name="monitor">
+                <value>None</value>
+             </attribute>
+          </class>
+    </attribute>
+    <attribute name="splitter">
+          <class name="ArgSplitter" version="1.0" category="splitters">
+             <attribute name="args">
+                <sequence>
+                   <value>['0']</value>
+
+                </sequence>
+             </attribute>
+          </class>
+    </attribute>
+    <attribute name="inputsandbox">
+       <sequence>
+       </sequence>
+    </attribute>
+    <attribute name="outputdata">
+       <value>None</value>
+    </attribute>
+    <attribute name="time">
+          <class name="JobTime" version="0.0" category="jobtime">
+             <attribute name="timestamps"> <value>{'new': datetime.datetime(2015, 3, 23, 12, 12, 13, 893227), 'submitted': datetime.datetime(2015, 3, 23, 12, 12, 24, 95936), 'submitting': datetime.datetime(2015, 3, 23, 12, 12, 13, 966721)}</value>
+</attribute>
+          </class>
+    </attribute>
+ </class>
+</root>

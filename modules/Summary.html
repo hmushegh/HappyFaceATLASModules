@@ -1,0 +1,21 @@
+## -*- coding: utf-8 -*-
+<%inherit file="/module_base.html" />
+
+<%def name="content()">
+<table class=TableData>
+<tr class=TableHeader>
+<td>Site</td>
+%for i,header in enumerate(cat_header):
+  <td>${header}</td>
+%endfor
+</tr>
+%for i,lines in enumerate(details):
+  <tr>
+  <td>${main_names[i]}</td>
+  %for j,items in enumerate(lines):
+    <td class=SummaryCatCell align=center><a href=${items['catlink']}><img class=SummaryCatIcon src=${items['status']}></a></td>    
+  %endfor
+  </tr>
+%endfor
+</table>
+</%def>
