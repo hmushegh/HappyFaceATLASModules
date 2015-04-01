@@ -1,0 +1,137 @@
+## -*- coding: utf-8 -*-
+<%inherit file="/module_base.html" />
+
+<%def name="content()">
+<script type="text/javascript">
+function ${module.instance_name}_row_button(name) {
+    $('#${module.instance_name}_plot_form :hidden').remove();
+    counter = 1;
+    $('#${module.instance_name}_plot_form').append('<input type="hidden" name="filter" value="group,'+name+'" />');
+    $('#${module.instance_name}_plot_form').append('<input type="hidden" name="legend" value="1" />');
+    $('#${module.instance_name}_plot_form').append('<input type="hidden" name="title" value="${module.instance_name}_'+name+'" />');
+    $('input[id*="${module.instance_name}_variable"]').each(function(idx, item){
+        if(item.checked){
+            $('#${module.instance_name}_plot_form').append('<input type="hidden" name="curve_'+counter+'" value="${module.instance_name},groups,'+item.value+','+item.value+'" />');
+            counter++;
+            }});
+    $('#${module.instance_name}_plot_form').submit();
+}
+
+function ${module.instance_name}_col_button(name) {
+    $('#${module.instance_name}_plot_form :hidden').remove();
+    counter = 1;
+    $('#${module.instance_name}_plot_form').append('<input type="hidden" name="legend" value="1" />');
+    $('#${module.instance_name}_plot_form').append('<input type="hidden" name="title" value="${module.instance_name}_'+name+'" />');
+    $('input[id*="${module.instance_name}_group_"]').each(function(idx, item){
+        if(item.checked){
+            $('#${module.instance_name}_plot_form').append('<input type="hidden" name="curve_'+counter+'" value="${module.instance_name},groups,'+name+','+item.value+'" />');
+            $('#${module.instance_name}_plot_form').append('<input type="hidden" name="filter_'+counter+'" value="group,'+item.value+'" />');
+            counter++;
+            }});
+    $('#${module.instance_name}_plot_form').submit();
+}
+function ${module.instance_name}_toggle(gnarfz) {
+    $('input[id*="${module.instance_name}_group_"]').prop("checked", !$('input[id*="${module.instance_name}_group_"]').is(":checked"));
+    $('input[id*="${module.instance_name}_variable"]').prop("checked", !$('input[id*="${module.instance_name}_variable"]').is(":checked"));
+    $('#${module.instance_name}_plot_form').append('<input type="hidden" name="'+gnarfz+'" value="asdf" />');
+}
+</script>
+<form id="${module.instance_name}_plot_form" method="get" action="${hf.plotgenerator.getTimeseriesUrl()}" target="_blank">
+ <table style="font: bold 0.7em sans-serif; width:800px; background-color: #ddd; border: 1px #999 solid;">
+  <tr>
+   <td>Start:</td>
+   <td>
+    <%
+    import datetime
+    backintime = run['time']-datetime.timedelta(days=2)
+    %>
+    <input name="start_date" type="text" size="10" style="text-align:center;" value="${backintime.strftime('%Y-%m-%d')}" />
+    <input name="start_time" type="text" size="5" style="text-align:center;" value="${backintime.strftime('%H:%M')}" />
+   </td>
+   <td>End:</td>
+   <td>
+    <input name="end_date" type="text" size="10" style="text-align:center;" value="${run['time'].strftime('%Y-%m-%d')}" />
+    <input name="end_time" type="text" size="5" style="text-align:center;" value="${run['time'].strftime('%H:%M')}" />
+   </td>
+  </tr>
+ </table>
+%if eval_time:
+<span style = 'font-size : 120%; font-color : red;'>Timestamp is too old! </span>
+%endif 
+ <table class="TableData">
+  <tr class="TableHeader">
+   <td>Group</td>
+   <td><input type="checkbox" id="${module.instance_name}_variable_0" value="total" checked="checked" />Total jobs</td>
+   <td><input type="checkbox" id="${module.instance_name}_variable_1" value="running" checked="checked" />Running jobs</td>
+   <td><input type="checkbox" id="${module.instance_name}_variable_2" value="ncpus" checked="checked" />Cores</td>
+   <td><input type="checkbox" id="${module.instance_name}_variable_3" value="ratio10" checked="checked" />Jobs with wallratio &lt; 10%</td>
+   <td>Plot jobs</td>
+  </tr>
+  <tr class="TableHeader">
+   <td><input id="${module.instance_name}_toggle_button" type="button" value="Toggle Selection" onfocus="this.blur()" onclick="${module.instance_name}_toggle('a')"/></td>
+   <td><button onfocus="this.blur()" group="total" onclick="${module.instance_name}_col_button('total')">Plot Col</button></td>
+   <td><button onfocus="this.blur()" onclick="${module.instance_name}_col_button('running')">Plot Col</button></td>
+   <td><button onfocus="this.blur()" onclick="${module.instance_name}_col_button('ncpus')">Plot Col</button></td>
+   <td><button onfocus="this.blur()" onclick="${module.instance_name}_col_button('ratio10')">Plot Col</button></td>
+   <td><button onfocus="this.blur()" onclick="${module.instance_name}_both_button()">Plot Selected</button></td>
+  </tr>
+% for i,group in enumerate(group_list):
+ % if group['status'] >= 1.0:
+  <tr class="ok">
+ % elif group['status'] >= 0.5:
+  <tr class="warning">
+ % else:
+  <tr class="critical">
+ % endif
+   <td><input type="checkbox" id="${'%s_group_%i' %(module.instance_name, i)}" value="${group['group']}" checked="checked" />${group['group']}</td>
+   <td>${group['total']}</td>
+   <td>${group['running']}</td>
+   <td>${group['ncpus']}</td>
+   <td>${group['ratio10']}</td>
+   <td><input type="button" onclick="${module.instance_name}_row_button('${group['group']}')" value="Plot Row" name="Plot Row" /></td>
+  </tr>
+% endfor
+ </table>
+</form>
+
+<input type="button" value="show/hide details" onfocus="this.blur()" onclick="$('#${module.instance_name}_details').slideToggle()" />
+<div class="DetailedInfo" id="${module.instance_name}_details" style="display:none;">
+% if len(dataset['details_group']) > 0:
+ <p>Note: This table shows users of the group <strong>${dataset['details_group'] | h}</strong> only</p>
+% endif
+ <table class="TableDetails">
+  <tr class="TableHeader">
+   <td>User</td>
+   <td>Total</td>
+   <td>Running</td>
+   <td>Cores</td>
+   <td>Waiting</td>
+   <td>Queued</td>
+   <td>Eff. > 80%</td>
+   <td>80% > Eff. > 30%</td>
+   <td>30% > Eff. > 10%</td>
+   <td>10% > Eff.</td>
+  </tr>
+% for info in info_list:
+ % if info['status'] >= 1.0:
+ <tr class="ok">
+ % elif info['status'] >= 0.5:
+ <tr class="warning">
+ % else:
+ <tr class="critical">
+ % endif
+  <td>${info['user'] | h}</td>
+  <td>${info['total']}</td>
+  <td>${info['running']}</td>
+  <td>${info['ncpus']}</td>
+  <td>${info['waiting']}</td>
+  <td>${info['pending']}</td>
+  <td>${info['ratio100']}</td>
+  <td>${info['ratio80']}</td>
+  <td>${info['ratio30']}</td>
+  <td>${info['ratio10']}</td>
+ </tr>
+% endfor
+ </table>
+</div>
+</%def>
