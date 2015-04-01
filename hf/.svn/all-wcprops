@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/public/HappyFace/!svn/ver/924/branches/v3.0/hf
+END
+downloadservice.py
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/public/HappyFace/!svn/ver/898/branches/v3.0/hf/downloadservice.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/public/HappyFace/!svn/ver/900/branches/v3.0/hf/__init__.py
+END
+auth.py
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/public/HappyFace/!svn/ver/849/branches/v3.0/hf/auth.py
+END
+exceptions.py
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/public/HappyFace/!svn/ver/893/branches/v3.0/hf/exceptions.py
+END
+url.py
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/public/HappyFace/!svn/ver/849/branches/v3.0/hf/url.py
+END
+utility.py
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/public/HappyFace/!svn/ver/894/branches/v3.0/hf/utility.py
+END
+database.py
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/public/HappyFace/!svn/ver/849/branches/v3.0/hf/database.py
+END
+configtools.py
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/public/HappyFace/!svn/ver/911/branches/v3.0/hf/configtools.py
+END
+dispatcher.py
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/public/HappyFace/!svn/ver/924/branches/v3.0/hf/dispatcher.py
+END

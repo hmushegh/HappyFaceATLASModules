@@ -1,0 +1,24 @@
+## -*- coding: utf-8 -*-
+<ul id="category_bar">
+% for category in category_list:
+% if category == selected_category:
+ <li id="${category.name}_tab" >
+  <span style="background-image:url('${category.getStatusIcon()}')">
+% else:
+ <li id="${category.name}_tab">
+  <a href="${category.url(run['time'] if include_time_in_url else None)}" title="${category.config["name"]}" style="background-image:url('${category.getStatusIcon()}')">
+%endif
+    <img alt="" class="index" src="${category.getIndexIcon()}" />
+% if category.hasUnauthorizedModules():
+    <img alt="" class="lock" src="${category.getLockIcon()}" />
+%endif
+   ${category.config["name"]}
+% if category == selected_category:
+  </span>
+% else:
+  </a>
+% endif
+ </li>
+## r
+% endfor
+</ul>

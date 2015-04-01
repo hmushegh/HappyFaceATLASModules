@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/public/HappyFace/!svn/ver/919/branches/v3.0/templates
+END
+plain_error.html
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/public/HappyFace/!svn/ver/861/branches/v3.0/templates/plain_error.html
+END
+category.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/public/HappyFace/!svn/ver/829/branches/v3.0/templates/category.html
+END
+module_base.html
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/public/HappyFace/!svn/ver/894/branches/v3.0/templates/module_base.html
+END
+overview.xml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/public/HappyFace/!svn/ver/809/branches/v3.0/templates/overview.xml
+END
+atom_timemachine.html
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/public/HappyFace/!svn/ver/863/branches/v3.0/templates/atom_timemachine.html
+END
+atom_plottermask.html
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/public/HappyFace/!svn/ver/786/branches/v3.0/templates/atom_plottermask.html
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/public/HappyFace/!svn/ver/830/branches/v3.0/templates/index.html
+END
+plot_timeseries.html
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/public/HappyFace/!svn/ver/913/branches/v3.0/templates/plot_timeseries.html
+END
+atom_navbar.html
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/public/HappyFace/!svn/ver/910/branches/v3.0/templates/atom_navbar.html
+END
+error.html
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/public/HappyFace/!svn/ver/861/branches/v3.0/templates/error.html
+END
+base.html
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/public/HappyFace/!svn/ver/919/branches/v3.0/templates/base.html
+END
