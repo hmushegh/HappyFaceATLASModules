@@ -1,6 +1,0 @@
-<root>
- <class name="ShareRef" version="1.2" category="sharerefs">
-    <attribute name="name"> <value>{'conf-238837d7-85cf-4833-bd59-fd1cf7556c3c': 2, 'conf-17ae2c94-deca-49f9-a8e7-790560be2e78': 2, 'conf-e0265856-c910-4006-bfc4-2229f503c52f': 2}</value>
-</attribute>
- </class>
-</root>
