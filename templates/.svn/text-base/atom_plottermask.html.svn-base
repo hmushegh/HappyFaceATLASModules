@@ -1,5 +1,0 @@
-<%page args="module=None" />
-
-<form action="${hf.plotgenerator.getTimeseriesUrl()}" method="get">
- <select name="curve_1"></select>
-</form>
